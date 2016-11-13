@@ -152,9 +152,8 @@ border-top-right-radius: 1em 3em;
 
 </style>
 </head>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-var count=0;
  $(document).ready(function(){
   $('#hideMenu').hover(function(){
       $('#menu').fadeIn();
@@ -182,7 +181,7 @@ var count=0;
 
 </script>
 <body>
-  <div class="section ">
+  <!--<div class="section ">-->
 <div class="container-fluid" id="menu" style="display: none" >
     <img src="https://lh5.ggpht.com/I-cdjTVAl2SdKEe3Bfk-0msh0iHcYj9_5C0Fx8CVy2LQoPP20HvLAvXgQBWElgg9wQ=w300" 
           width="50px" height="50px" style="margin-left:96%;border:1px solid white; border-radius:2em 2em">
@@ -217,8 +216,8 @@ var count=0;
                 {% if 'honey' not in item.labels %}
                     <li>
                     <div>
-                        <strong><a href="" onClick="change('blue',{{item.id}})">{{ item.subject }} </a></strong>
-                        <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
+                       <p> <strong style="font-size:17px"><a href="" onClick="change('blue',{{item.id}})" >{{ item.subject }} </a></strong>
+                    See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} </a> !</p>
                     </div>
                     </li>
                 {% endif %}
