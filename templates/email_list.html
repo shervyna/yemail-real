@@ -8,7 +8,68 @@
     <link href="/static/me.css" rel="stylesheet" type="text/css">
 </head>
 
+  <style>
+      body{
+          font-family: "Helvetica Neue", "Segoe UI Semibold", "Segoe UI", Helvetica, Arial, "Lucida Grande", sans-serif;
+      }
+    .background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: block;
+  background-image: url('http://f.fwallpapers.com/images/sunset-pier.png');
+  width: 1200px;
+  height: 800px;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.content {
+    color:#fff;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.email-item{
+
+    background: rgba(37, 36, 84, 0.24) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(255, 255, 255);
+    padding: 5px;
+}
+
+ul{
+    list-style: none;
+}
+      .subject{
+          font-weight: bold;
+      }
+      .from{
+
+      }
+      a:hover {
+        color: #e6ffea;
+          text-decoration: none;
+    }
+      a{
+          text-decoration: none;
+      }
+
+  </style>
+
 <body>
+
+<div class="background-image"></div>
+<div class="content">
 
   <div class="section">
     <div class="container">
@@ -44,10 +105,12 @@
 
                 {% if 'honey' not in item.labels %}
                     <li>
-                    <div>
-                        <strong>{{ item.subject }} </strong>
-                        <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
-                    </div>
+                        <div class="email-item">
+                            <a href="{{ url_for('show_email', email_id=item.id) }}">
+                                <span id="subj">{{ item.subject }} </span>
+                                <span id="from">{{ item.from }} </span>
+                            </a>
+                        </div>
                     </li>
                 {% endif %}
 
@@ -62,11 +125,13 @@
              {% for item in emails %}
 
                 {% if 'honey' in item.labels %}
-                    <li>
-                    <div>
-                        <strong>{{ item.subject }} </strong>
-                        <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
-                    </div>
+                   <li>
+                        <div class="email-item">
+                            <a href="{{ url_for('show_email', email_id=item.id) }}">
+                                <span id="subj">{{ item.subject }} </span>
+                                <span id="from">{{ item.from }} </span>
+                            </a>
+                        </div>
                     </li>
                 {% endif %}
 
@@ -81,11 +146,13 @@
              {% for item in emails %}
 
                 <li>
-                <div>
-                    <strong>{{ item.subject }} </strong>
-                    <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
-                </div>
-                </li>
+                        <div class="email-item">
+                            <a href="{{ url_for('show_email', email_id=item.id) }}">
+                                <span id="subj">{{ item.subject }} </span>
+                                <span id="from">{{ item.from }} </span>
+                            </a>
+                        </div>
+                    </li>
 
             {% endfor %}
           </ul>
@@ -94,6 +161,7 @@
       </div>
     </div>
   </div>
+</div>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
 

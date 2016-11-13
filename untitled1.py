@@ -78,7 +78,7 @@ def valid_login(username, password):
 
 @app.route("/emails")
 def emails():
-    return render_template('email_list.html', emails = items)
+    return render_template('email_list.html', emails = items*3)
 
 
 @app.route('/emails/<int:email_id>')
@@ -86,6 +86,7 @@ def show_email(email_id):
     # assume we get email from the email id
 
     return render_template('emails.html', item=items[email_id - 1])
-app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+
+
 if __name__ == "__main__":
-    app.run()
+    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
