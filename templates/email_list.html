@@ -5,7 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="http://v4.pingendo.com/assets/bootstrap/themes/default.css" rel="stylesheet" type="text/css">
-    <link href="/static/me.css" rel="stylesheet" type="text/css">
+      <link href="me.css" rel="stylesheet" type="text/css">
+<style>
+.col-lg-6{
+border:5px solid;
+height:60%;
+}
+.col-lg-6#blue{
+    border-color:blue;
+}
+.col-lg-6#orange{
+    border-color:#FFA500;
+}
+.col-lg-6#pink{
+    border-color:#FF69B4;
+}
+.col-lg-6#green{
+    border-color:green;
+}
+
+
+      /* Box styles */
+.myBox {
+    text-align:center; 
+font: 15px/20px sans-serif;
+width: 100%;
+    height: 80%;
+
+margin:0;
+padding:0;
+float:left;
+overflow: scroll;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 10px;
+height: 5px;
+}
+
+::-webkit-scrollbar-track {
+border: 1px solid #D3D3D3;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: #D3D3D3;  
+border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #88ba1c;  
+}
+h3{
+    text-align:center; 
+}
+li{
+    border:1px solid;
+}
+</style>
 </head>
 
   <style>
@@ -83,24 +141,10 @@ ul{
   <div class="section">
     <div class="container">
       <div class="row" draggable="true">
-        <div class="col-lg-2">
-          <ul class="nav nav-pills  nav-stacked" draggable="true">
-            <li class="nav-item">
-              <a href="#" class="active nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Messages</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-10">
-          <div class="col-lg-6">
+          <div class="col-lg-6" id="blue" >
           <h3>School</h3>
-          <ul class="" draggable="true">
-
+          <ul class="myBox" draggable="true" id="orange">
+            
              {% for item in emails %}
 
                 {% if 'honey' not in item.labels %}
@@ -117,10 +161,10 @@ ul{
             {% endfor %}
           </ul>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" id="orange">
 
           <h3>Organization</h3>
-          <ul class="" draggable="true">
+          <ul class="myBox" draggable="true" >
 
              {% for item in emails %}
 
@@ -138,10 +182,28 @@ ul{
             {% endfor %}
           </ul>
         </div>
-         <div class="col-lg-6">
+        </div>
+        <div class="row" draggable="true">
 
-          <h3 class="header">All Email</h3>
-          <ul class="" draggable="true">
+         <div class="col-lg-6 " id="green">
+            <h3 class="header">All Email</h3>
+            <ul class="myBox" draggable="true">
+
+             {% for item in emails %}
+
+                <li>
+                <div>
+                    <strong>{{ item.subject }} </strong>
+                    <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
+                </div>
+                </li>
+
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-lg-6" id="pink">
+            <h3 class="header">All Email</h3>
+            <ul class="myBox" draggable="true">
 
              {% for item in emails %}
 
