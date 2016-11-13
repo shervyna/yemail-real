@@ -1,19 +1,46 @@
 <html>
 <head>
+    <style type="text/css">
+        .button{
+            padding:10px;
+            background-color:yellow;
+            border-radius:4em 4em;
+        }
+        p{
+          padding:3px;  
+        }
+        img{
+            width:30px;
+            height:30px;
+            display:inline-block;
+            float: right;
+            padding:5px;
+        }    
+        h3{
+            text-decoration:underline;
+        }
+        </style>
+    <head/>
 
 <body>
+<a href="/emails"><img src="https://cdn1.iconfinder.com/data/icons/MetroStation-PNG/128/MB__home.png"></a>
+<a href=""><img src="https://lh5.ggpht.com/I-cdjTVAl2SdKEe3Bfk-0msh0iHcYj9_5C0Fx8CVy2LQoPP20HvLAvXgQBWElgg9wQ=w300"></a>
+
+<a href=""><img src="http://www.pixempire.com/images/preview/interface-reply-arrow-icon.jpg"></a>
 
 <div>
-    <p>Subject: {{ item.subject }} </p>
-    <button onclick="alert('The email is ' + '{{ item.insides }}' + ' and it is from ' +'{{ item.time }}' + ' ago!') ">
+    <h3>Subject:   {{ item.subject }} </h3>
+    <p>Hi Eugine,<br></p>
+        <p>I am glad to inform you that you passed our online coding test. We will inform you the date of the skype interview in our next email.</p>
+    <p>Google Engineering Team</p>
+    <!--<button class="button" onclick="alert('The email is ' + '{{ item.insides }}' + ' and it is from ' +'{{ item.time }}' + ' ago!') ">
         See this email from <a href="#">  {{ item.from }} </a> !
     </button>
-    <button onclick="">
+    <button onclick="" class="button">
         Reply to this email from <a href="#">  {{ item.from }} </a> !
-    </button>
+    </button>-->
 </div>
 
 
-<a href="/emails">Go see my emails!</a>
 </body>
 </html>
