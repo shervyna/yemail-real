@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="http://v4.pingendo.com/assets/bootstrap/themes/default.css" rel="stylesheet" type="text/css">
+    <link href="/static/me.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <hr class="" draggable="true">
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="section">
     <div class="container">
       <div class="row" draggable="true">
-        <div class="col-lg-4">
+        <div class="col-lg-2">
           <ul class="nav nav-pills  nav-stacked" draggable="true">
             <li class="nav-item">
               <a href="#" class="active nav-link">Home</a>
@@ -24,7 +35,9 @@
             </li>
           </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-10">
+          <div class="col-lg-6">
+          <h3>School</h3>
           <ul class="" draggable="true">
 
              {% for item in emails %}
@@ -34,9 +47,6 @@
                     <div>
                         <strong>{{ item.subject }} </strong>
                         <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
-                        <button onclick="">
-                            TRASH IT
-                        </button>
                     </div>
                     </li>
                 {% endif %}
@@ -44,7 +54,43 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="col-lg-4"></div>
+        <div class="col-lg-6">
+
+          <h3>Organization</h3>
+          <ul class="" draggable="true">
+
+             {% for item in emails %}
+
+                {% if 'honey' in item.labels %}
+                    <li>
+                    <div>
+                        <strong>{{ item.subject }} </strong>
+                        <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
+                    </div>
+                    </li>
+                {% endif %}
+
+            {% endfor %}
+          </ul>
+        </div>
+         <div class="col-lg-6">
+
+          <h3 class="header">All Email</h3>
+          <ul class="" draggable="true">
+
+             {% for item in emails %}
+
+                <li>
+                <div>
+                    <strong>{{ item.subject }} </strong>
+                    <p>See <a href="{{ url_for('show_email', email_id=item.id) }}">this email from {{ item.from }} !</a> !</p>
+                </div>
+                </li>
+
+            {% endfor %}
+          </ul>
+        </div>
+        </div>
       </div>
     </div>
   </div>
