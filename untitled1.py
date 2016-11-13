@@ -81,7 +81,7 @@ def emails():
     return render_template('email_list.html', emails = items)
 
 
-@app.route('/email/<int:email_id>')
+@app.route('/emails/<int:email_id>')
 def show_email(email_id):
     # assume we get email from the email id
 
