@@ -1,0 +1,19 @@
+<html>
+<head>
+
+<body>
+
+<div>
+    <p>Subject: {{ item.subject }} </p>
+    <button onclick="alert('The email is ' + '{{ item.insides }}' + ' and it is from ' +'{{ item.time }}' + ' ago!') ">
+        See this email from <a href="#">  {{ item.from }} </a> !
+    </button>
+    <button onclick="">
+        Reply to this email from <a href="#">  {{ item.from }} </a> !
+    </button>
+</div>
+
+
+<a href="/emails">Go see my emails!</a>
+</body>
+</html>

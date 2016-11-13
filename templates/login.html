@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Index page!</title>
+</head>
+<body>
+<h1>Welcome to the index page! </h1>
+
+<p> Why is this for me? </p>
+<ul>
+    <li>Fireproof!</li>
+    <li>Convenient!</li>
+    <li>Retro!</li>
+</ul>
+
+<form action="/login" method="post">
+
+    <div class="input text">
+        {{ form.name.label }} {{ form.name }}
+    </div>
+
+    <div class="input submit">
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+
+</body>
+</html>
