@@ -78,7 +78,7 @@ def valid_login(username, password):
 
 @app.route("/emails")
 def emails():
-    return render_template('email_list.html', emails = items)
+    return render_template('email_list.html', emails = items*3)
 
 
 @app.route('/emails/<int:email_id>')
