@@ -1,0 +1,30 @@
+  /* Box styles */
+.myBox {
+    text-align:center; 
+border: 2px solid;
+font: 15px/20px sans-serif;
+width: 50%;
+height: 50%;
+float:left;
+overflow: scroll;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 10px;
+height: 5px;
+}
+
+::-webkit-scrollbar-track {
+border: 1px solid yellowgreen;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: yellowgreen;  
+border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #88ba1c;  
+}
